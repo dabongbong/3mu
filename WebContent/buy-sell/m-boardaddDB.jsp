@@ -24,7 +24,7 @@
 		String name = item.getFieldName();
 		if(item.isFormField()) {
 			String value = item.getString("UTF-8");
-			if(name.equals("id")) msub = value;
+			if(name.equals("id")) id = value;
 			else if (name.equals("msub")) msub = value;
 			else if (name.equals("mtitle")) mtitle = value;
 			else if (name.equals("mcontent")) mcontent = value;
@@ -42,7 +42,7 @@
 	}
 	MBoardDAO dao = new MBoardDAO();
 	if(dao.insert(id, msub, mtitle, mcontent, mimg)) {
-		out.print("<script>alert('게시물 등록 성공!!'); location.href='/buy-sell/mboard.jsp';</script>");
+		out.print("<script>alert('게시물 등록 성공!!'); location.href='/buy-sell/m-board.jsp';</script>");
 	}else {
 		out.print("에러발생!");
 	}

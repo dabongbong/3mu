@@ -28,8 +28,8 @@
 			</div>
 			<br>
 			<!-- Text input-->
-			<div style="display:none;">
-				<div>
+			<div>
+				<div style="display: none;">
 					<input id="id" name="id" type="text" placeholder="글 제목" class="form-control input-md" value=<%=id %>>
 				</div>
 			</div>

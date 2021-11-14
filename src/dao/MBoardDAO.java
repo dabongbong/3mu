@@ -36,7 +36,7 @@ public class MBoardDAO {
 		PreparedStatement pstmt = null;
 		
 		try {
-			String sql = "insert into MBoard(id, msub, mtilte, mcontent, mimg) values(?,?,?,?,?)";
+			String sql = "insert into MBoard(id, msub, mtitle, mcontent, mimg) values(?,?,?,?,?)";
 			
 			conn = ConnectionPool.get();
 			pstmt = conn.prepareStatement(sql);

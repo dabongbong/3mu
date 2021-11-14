@@ -31,6 +31,27 @@ public class MBoardDAO {
 		}
 	}
 	
+	public boolean insertreply(String mno, String id, String content) throws NamingException, SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			String sql = "insert into mreply(mno, id, content) values(?,?,?)";
+			
+			conn = ConnectionPool.get();
+			pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, mno);
+				pstmt.setString(2, id);
+				pstmt.setString(3, content);
+			
+			int count = pstmt.executeUpdate();
+			return(count == 1)? true:false;
+		}finally {
+			if(pstmt != null)pstmt.close();
+			if(conn != null)conn.close();
+		}
+	}
+	
 	public boolean insert(String id, String msub, String mtitle, String mcontent, String mimg) throws NamingException, SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;

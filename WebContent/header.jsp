@@ -25,7 +25,7 @@ body {
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a href="/buy-sell/m-board.jsp">3무마켓</a></li>
-        <li><a href="#">자유게시판</a></li>
+        <li><a href="/board/FreeBoardList.jsp">자유게시판</a></li>
         <li><a href="#">3무마켓</a></li>
         <li><a href="#">3무마켓</a></li>
         <% 
@@ -54,12 +54,12 @@ body {
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> 회원메뉴 <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
           <%if (id != null){%>
-            <li><a href="#">로그아웃</a></li>
+            <li><a href="/member/logout.jsp">로그아웃</a></li>
             <li class="divider"></li>
             <li><a href="#">회원탈퇴</a></li>
          <%} else { %>
-            <li><a href="#">회원가입</a></li>
-            <li><a href="#">로그인</a></li>
+            <li><a href="/member/join.jsp">회원가입</a></li>
+            <li><a href="/member/login.jsp">로그인</a></li>
             <%} %>
           </ul>
         </li>

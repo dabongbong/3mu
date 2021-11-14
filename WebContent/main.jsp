@@ -15,6 +15,6 @@
 
 
 <!-- 푸터 영역입니다. -->
-<%@ include file = "./footer.jsp" %>
+<%@ include file = "/footer.jsp" %>
 </body>
 </html>

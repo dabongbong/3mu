@@ -37,7 +37,7 @@
 		<tr>
 			<td><%=mboard.getMno() %></td>
 			<td><%=mboard.getMsub() %></td>
-			<td><a href="#"><%=mboard.getMtitle() %></a></td>
+			<td><a href="./m-boardDetail.jsp?mno=<%=mboard.getMno() %>"><%=mboard.getMtitle() %></a></td>
 			<td><%=mboard.getId() %></td>
 			<td><%=mboard.getMtime() %></td>
 		</tr>

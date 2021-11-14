@@ -6,8 +6,7 @@ body {
 }
 </style>
 <%
-	String id = "test";
-	String admin = "0";
+	String id = (String) session.getAttribute("id");
 %>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -31,7 +30,7 @@ body {
         <li><a href="#">3무마켓</a></li>
         <% 
         if(id != null){
-        	if(admin.equals("1")) {
+        	if(id.equals("admin")) {
         %>		
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">관리자메뉴 <span class="caret"></span></a>

@@ -55,6 +55,40 @@ public class MBoardDAO {
 				
 	}
 	
+	public MBoardObj getDetail(String mno) throws NamingException, SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			String sql = "select * from MBoard where mno = ?";
+			
+			conn = ConnectionPool.get();
+			pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, mno);
+			rs = pstmt.executeQuery();
+			
+			rs.next();
+			
+			mno = rs.getString(1);
+			String id = rs.getString(2);
+			String msub = rs.getString(3);
+			String mtitle = rs.getString(4);
+			String mcontent = rs.getString(5);
+			String mimg = rs.getString(6);
+			String mtime = rs.getString(7);
+			
+			MBoardObj mboard = new MBoardObj(mno, id, msub, mtitle, mcontent, mimg, mtime);
+			
+			return mboard;
+			
+		}finally {
+			if (rs != null) rs.close();
+			if (pstmt != null)pstmt.close();
+			if (conn != null)conn.close();
+		}
+	}
+	
 	
 	
 }

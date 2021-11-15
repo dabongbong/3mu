@@ -23,7 +23,6 @@
 		BoardObj board = (new BoardDAO()).getView(a);
 		
 	%>
-
 <div class="container">
       <form name="newMember" class="form-horizontal"  action="FreeBoardDB.jsp" method="post" enctype="multipart/form-data" ">
          <div class="form-group  row">

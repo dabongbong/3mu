@@ -11,19 +11,19 @@
 <title>Market-Place</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <style>
-	tbody>tr>td:nth-child(1) {
+	thead>tr>th:nth-child(1) {
 		width: 10%;
 	}
-	tbody>tr>td:nth-child(2) {
+	thead>tr>th:nth-child(2) {
 		width: 10%;
 	}
-	tbody>tr>td:nth-child(3) {
+	thead>tr>th:nth-child(3) {
 		width: 50%;
 	}
-	tbody>tr>td:nth-child(4) {
+	thead>tr>th:nth-child(4) {
 		width: 10%;
 	}
-	tbody>tr>td:nth-child(5) {
+	thead>tr>th:nth-child(5) {
 		width: 20%;
 	}
 
@@ -33,12 +33,12 @@
 <!-- 헤더영역입니다. -->
 <%@ include file = "/header.jsp" %>
 <!-- 메인 영역입니다. -->
-<div class="body-container container">
 	<div class="jumbotron">
 		<div class="container">
 			<h1 class="display-3">SSAMMooo</h1>
 		</div>
 	</div>
+<div class="body-container container">
 <table class="table table-striped">
 	<thead>
 		<tr>
@@ -108,13 +108,6 @@
 	<%} %>
 	
 </table>
-
-
-
-
-
-
-
 </div>
 <!-- 푸터 영역입니다. -->
 <%@ include file = "/footer.jsp" %>

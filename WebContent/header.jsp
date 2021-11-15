@@ -24,9 +24,9 @@ body {
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
+        <li><a href="/notice/n-board.jsp">공지사항</a></li>
         <li><a href="/buy-sell/m-board.jsp">3무마켓</a></li>
         <li><a href="/board/FreeBoardList.jsp">자유게시판</a></li>
-        <li><a href="#">3무마켓</a></li>
         <li><a href="#">3무마켓</a></li>
         <% 
         if(id != null){

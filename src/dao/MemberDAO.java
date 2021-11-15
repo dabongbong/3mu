@@ -10,6 +10,33 @@ import util.ConnectionPool;
 
 public class MemberDAO {
 
+	public String findID(String name, String phone) throws NamingException, SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			String sql = "select * from member where name = ? and phone = ?";
+			conn = ConnectionPool.get();
+			pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, name);
+				pstmt.setString(2, phone);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				String id = rs.getString(1);
+				return id;
+			} else {
+				String id = null;
+				return id;
+			}
+		}finally {
+			if (rs != null) rs.close();
+			if (pstmt != null)pstmt.close();
+			if (conn != null)conn.close();
+		}
+	}
+	
 	public int login(String id, String password) throws NamingException, SQLException {
 		Connection conn = null;
 		PreparedStatement stmt = null;

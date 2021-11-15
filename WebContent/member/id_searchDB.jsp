@@ -3,12 +3,12 @@
     pageEncoding="UTF-8"%>
 
 <%
- request.setCharacterEncoding("UTF-8");
-     String member_name = request.getParameter("id");
-     String member_phone = request.getParameter("phone");
+	request.setCharacterEncoding("UTF-8");
+	String name = request.getParameter("name");
+	String phone = request.getParameter("phone");
      
-MemberDAO dao = new MemberDAO();
- String id = dao.findId(id, phone); //아이디를 디비에서 가져옴..실패시 널
+	MemberDAO dao = new MemberDAO();
+	String id = dao.findID(name, phone); //아이디를 디비에서 가져옴..실패시 널
  
 %>
 

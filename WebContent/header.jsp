@@ -4,6 +4,9 @@
 body {
 	padding-bottom: 70px;
 }
+#logo:hover>a{
+	background:url('/img/icon_07.png') no-repeat center;
+}
 </style>
 <%
 	String id = (String) session.getAttribute("id");
@@ -18,7 +21,9 @@ body {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
+      <div id="logo">
       <a class="navbar-brand" href="/main.jsp" style="background:url('/img/icon_06.png') no-repeat center;background-size:cover; text-indent: -9999px; width:50px;">Brand</a>
+      </div>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->

@@ -8,17 +8,14 @@
 }
 main {
 	grid-area: main;
-	background: red;
 }
 aside {
 	grid-area: aside;
-	background: blue;
 	box-sizing: border-box;
 	padding: 10px;
 }
 .mini-board {
-	height: 70%;
-	background: yellowgreen;
+	height: 100%;
 	overflow: scroll;
 	padding: 5px;
 	margin-bottom: 10px;
@@ -41,8 +38,8 @@ aside {
 	.grid_container {
 	display: grid;
 	grid-template :
-		"main main aside" 200px
-		"main main aside" 200px
+		"main main aside" 40%
+		"main main aside" 40%
 		/1fr 1fr 1fr;
 	}
 }
@@ -52,8 +49,8 @@ aside {
 	.grid_container {
 		display: grid;
 		grid-template :
-			"main main aside" 200px
-			"main main aside" 200px
+			"main main aside" 40%
+			"main main aside" 40%
 			/1fr 1fr 1fr
 				}
 

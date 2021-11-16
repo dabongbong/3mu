@@ -9,6 +9,34 @@ import javax.naming.NamingException;
 import util.ConnectionPool;
 
 public class MemberDAO {
+	
+	public String findPW(String id, String quiz, String answer) throws NamingException, SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			String sql = "select * from member where id = ? and quiz = ? and answer = ?";
+			conn = ConnectionPool.get();
+			pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, id);
+				pstmt.setString(2, quiz);
+				pstmt.setString(3, answer);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				String pw = rs.getString("password");
+				return pw;
+			}else {
+				String pw = null;
+				return null;
+			}
+		}finally {
+			if (rs != null) rs.close();
+			if (pstmt != null)pstmt.close();
+			if (conn != null)conn.close();
+		}
+	}
 
 	public String findID(String name, String phone) throws NamingException, SQLException {
 		Connection conn = null;

@@ -24,9 +24,9 @@
 			<input type="password" id="inputPassword" name="pass" class="form-control" placeholder="PW 입력" required>
 			<button  type="submit" class="btn btn-default">로그인</button>
 		</form>
-			<a href="/Member/join.jsp">회원가입</a> 
-			<a href="/Member/id_search.jsp">아이디 찾기</a>
-			<a href="/Member/ps_search.jsp">비밀번호 찾기</a>
+			<a href="/member/join.jsp">회원가입</a> 
+			<a href="/member/id_search.jsp">아이디 찾기</a>
+			<a href="/member/ps_search.jsp">비밀번호 찾기</a>
 	</div>
 <!-- 푸터 영역입니다. -->
 <%@ include file = "/footer.jsp" %>

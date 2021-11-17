@@ -89,14 +89,20 @@
 	</tbody>
 	<tfoot>
 		<tr>
-			<td colspan=4  align="center">
+			<td colspan="4" align="center">
 				<form action="/buy-sell/m-board.jsp" method="post">
-					<select name="msub">
-						<option value="삽니다.">삽니다</option>
-						<option value="팝니다.">팝니다</option>
-					</select>
-					<input type="text" name="mtitle" placeholder="검색">
-					<input type="submit" class="btn">
+					<div  class="col-md-2 col-md-offset-3">
+						<select name="msub" class="form-control">
+							<option value="삽니다.">삽니다</option>
+							<option value="팝니다.">팝니다</option>
+						</select>
+					</div>
+					<div class="col-md-4">
+						<input class="form-control"type="text" name="mtitle" placeholder="검색">
+					</div>
+					<div class="col-md-2">
+						<input type="submit" class="btn">
+					</div>
 				</form>
 			</td>
 			<td><a class="btn btn-default" href="/buy-sell/m-boardadd.jsp"> 글쓰기</a></td>

@@ -2,10 +2,15 @@
     pageEncoding="UTF-8"%>
 <style>
 body {
+	font-family: 'CookieRun-Regular';
 	padding-bottom: 70px;
 }
-#logo:hover>a{
-	background:url('/img/icon_07.png') no-repeat center;
+
+@font-face {
+    font-family: 'CookieRun-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/CookieRun-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 </style>
 <%
@@ -32,7 +37,6 @@ body {
         <li><a href="/notice/n-board.jsp">공지사항</a></li>
         <li><a href="/buy-sell/m-board.jsp">3무마켓</a></li>
         <li><a href="/board/FreeBoardList.jsp">자유게시판</a></li>
-        <li><a href="#">3무마켓</a></li>
         <% 
         if(id != null){
         	if(id.equals("admin")) {
@@ -40,13 +44,7 @@ body {
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">관리자메뉴 <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
+            <li><a href="/member/UserInForm.jsp">회원 리스트</a></li>
           </ul>
         </li>
         <%
@@ -59,9 +57,10 @@ body {
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> 회원메뉴 <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
           <%if (id != null){%>
+    		<li><a href="/member/detailMember.jsp">마이페이지</a></li>
             <li><a href="/member/logout.jsp">로그아웃</a></li>
             <li class="divider"></li>
-            <li><a href="#">회원탈퇴</a></li>
+            <li><a href="/member/DeleteDB.jsp?id=<%=id%>">회원탈퇴</a></li>
          <%} else { %>
             <li><a href="/member/join.jsp">회원가입</a></li>
             <li><a href="/member/login.jsp">로그인</a></li>

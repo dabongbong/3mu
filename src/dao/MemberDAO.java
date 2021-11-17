@@ -29,7 +29,7 @@ public class MemberDAO {
 				return pw;
 			}else {
 				String pw = null;
-				return null;
+				return pw;
 			}
 		}finally {
 			if (rs != null) rs.close();
@@ -102,16 +102,16 @@ public class MemberDAO {
 			String sql = "INSERT INTO member(id, password, name, gender, birth, email, phone, address, quiz, answer) VALUES (?,?,?,?,?,?,?,?,?,?)";
 			conn = ConnectionPool.get();
 			stmt = conn.prepareStatement(sql);
-			stmt.setString(1, id);
-			stmt.setString(2, password);
-			stmt.setString(3, name);
-			stmt.setString(4, gender);
-			stmt.setString(5, birth);
-			stmt.setString(6, mail);
-			stmt.setString(7, phone);
-			stmt.setString(8, address);
-			stmt.setString(9, quiz);
-			stmt.setString(10, answer);
+				stmt.setString(1, id);
+				stmt.setString(2, password);
+				stmt.setString(3, name);
+				stmt.setString(4, gender);
+				stmt.setString(5, birth);
+				stmt.setString(6, mail);
+				stmt.setString(7, phone);
+				stmt.setString(8, address);
+				stmt.setString(9, quiz);
+				stmt.setString(10, answer);
 			int count = stmt.executeUpdate();
 			return (count == 1)? true : false;
 
@@ -157,48 +157,115 @@ public class MemberDAO {
 	}
 
 
-public MemberObj getDetail(String cid) throws NamingException, SQLException{
-		
-		Connection conn = null;
-		PreparedStatement stmt = null;
-		ResultSet rs = null;
-		
-		try {
-			String sql = "SELECT * FROM member WHERE cid = ?";
-			
-			conn = ConnectionPool.get();
-			stmt = conn.prepareStatement(sql);
-				stmt.setNString(1, cid);
-			rs = stmt.executeQuery();
-		
-			rs.next();
-			
-			String id = rs.getString(1); 
-			String ps = rs.getString(2);
-			String name = rs.getString(3); 
-			String gender = rs.getString(4);			
-			String birth = rs.getString(5); 
-			String email = rs.getString(6);			
-			String phone = rs.getString(7); 
-			String addr = rs.getString(8);
-			String quiz = rs.getString(9);
-			String answer = rs.getNString(10);
-			String date = rs.getString(11);
-			String admin = rs.getString(12);
-			
-			MemberObj member = new MemberObj(id,ps,name,gender,birth,email,phone,addr,quiz,answer,date,admin);
 
+
+public MemberObj getDetail(String id) throws NamingException, SQLException{
+	
+	Connection conn = null;
+	PreparedStatement stmt = null;
+	ResultSet rs = null;
+	
+	try {
+		String sql = "SELECT * FROM member WHERE id = ?";
+		
+		conn = ConnectionPool.get();
+		stmt = conn.prepareStatement(sql);
+			stmt.setString(1, id);
+		rs = stmt.executeQuery();
+
+		if(rs.next()) {
+
+		String cid = rs.getString(1); 
+		String ps = rs.getString(2);
+		String name = rs.getString(3); 
+		String gender = rs.getString(4);			
+		String birth = rs.getString(5); 
+		String email = rs.getString(6);			
+		String phone = rs.getString(7); 
+		String addr = rs.getString(8);
+		String quiz = rs.getString(9);
+		String answer = rs.getString(10);
+		String regiday = rs.getString(11);
+		String admin = rs.getString(12);
+		
+		MemberObj member = new MemberObj(cid,ps,name,gender,birth,email,phone,addr,quiz,answer,regiday,admin);
+		return member;
+		
+		} else {
+			MemberObj member = null;
 			return member;
-  
-		} finally {
-			if(rs != null) rs.close();
-			if(stmt != null) stmt.close();
-			if(conn != null) conn.close();
 		}
+
+		
+	} finally {
+		if(rs != null) rs.close();
+		if(stmt != null) stmt.close();
+		if(conn != null) conn.close();
 	}
-
-
-
-
-
 }
+public int delete(String id) throws NamingException, SQLException {
+	Connection conn = null;
+	PreparedStatement pstmt = null;
+	
+	try {
+		String sql = "DELETE FROM member WHERE id = ?";
+		
+		conn = ConnectionPool.get();
+		pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			
+		int count = pstmt.executeUpdate();
+		return (count == 1 ) ? 1 : 0;
+		
+	} finally {
+		conn.close(); pstmt.close();
+	}
+}
+
+public int modifyMember(String id,String password, String gender, String birth, String email, String phone, String address) throws NamingException, SQLException {
+	Connection conn = null;
+	PreparedStatement pstmt = null;
+	PreparedStatement pstmt2 = null;
+	ResultSet rs = null;
+	int result = -1;
+	
+	try {
+		
+		String sql = "SELECT password FROM member WHERE id=?";
+		conn = ConnectionPool.get();
+		pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+		rs = pstmt.executeQuery();
+		
+		if(rs.next()) {
+			if(password.equals(rs.getString("password"))) {
+				String sql2 = "UPDATE member SET gender=?, birth=?, email=?, phone=?, address=? WHERE id=?";
+				pstmt2 = conn.prepareStatement(sql2);
+					pstmt2.setString(1, gender);
+					pstmt2.setString(2, birth);
+					pstmt2.setString(3, email);
+					pstmt2.setString(4, phone);
+					pstmt2.setString(5, address);
+					pstmt2.setString(6, id);
+					
+				
+				pstmt2.executeUpdate();
+				result = 1;  // 수정 성공 
+				return result;
+			} else {
+				result = 0; //실패 
+				return result;
+			}
+		} else {
+			result = -1; // 회원이 없음
+			return result;
+		}
+	} finally {
+		rs.close(); conn.close(); pstmt.close(); pstmt2.close();
+	}
+	
+}		
+}
+
+
+

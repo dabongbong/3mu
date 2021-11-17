@@ -5,74 +5,63 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1, minimum-scale=1">
 <title>회원 정보</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 </head>
 <body>
 <%@ include file = "/header.jsp" %>
 	<div class="alert alert-secondary" role="alert">
-		<h1 class="display-3">회원 정보</h1>
+		<h3 class="display-3">회원 정보</h3>
 	</div>
 <%
-	String a = "555";
-	MemberObj member = (new MemberDAO()).getDetail(a);
+	MemberObj member = (new MemberDAO()).getDetail(id);
 %>
 
 	<div class="container">
-		<form name="newMember" class="form-horizontal"  action="joinCheck.jsp" method="post" onsubmit="return checkForm()">
+		<form name="newMember" class="form-horizontal"  action="joinDB.jsp" method="post" onsubmit="return checkForm()">
 			<div class="form-group  row">
 				<label class="col-sm-2 ">아이디</label>
 				<div class="col-sm-3">
-					<%=member.getCid() %>
+					<%=member.getId() %>
 				</div> 
 			</div>
 			<div class="form-group  row">
 				<label class="col-sm-2">성명</label>
 				<div class="col-sm-3">
-					<%=member.getCname() %>
-				</div>
-			</div>
-			<div class="form-group  row">
-				<label class="col-sm-2">성별</label>
-				<div class="col-sm-10">
-					<%=member.getCgender() %>
-				</div>
-			</div>
-			<div class="form-group row">
-				<label class="col-sm-2">생일</label>
-				<div class="col-sm-4  ">
-					<%=member.getCbirth() %>
+					<%=member.getName() %>
 				</div>
 			</div>
 			<div class="form-group  row ">
 				<label class="col-sm-2">이메일</label>
 				<div class="col-sm-10">
-					<%=member.getCemail() %>
+					<%=member.getEmail() %>
 				</div>				
 			</div>
 			<div class="form-group  row">
 				<label class="col-sm-2">전화번호</label>
 				<div class="col-sm-3">
-					<%=member.getCphone() %>
+					<%=member.getPhone() %>
 				</div>
 			</div>
 			<div class="form-group  row">
 				<label class="col-sm-2 ">주소</label>
 				<div class="col-sm-5">
-					<%=member.getCaddress() %>
+					<%=member.getAddress() %>
 
 				</div>
 			</div>
 				<div class="form-group  row">
 				<label class="col-sm-2 ">가입일</label>
 				<div class="col-sm-5">
-				
+					<%=member.getRegiday() %>
 
 				</div>
 			</div>
 			<div class="form-group  row">
 				<div class="col-sm-offset-2 col-sm-10 ">
-					<input type="submit" class="btn btn-primary " value="수정" > 
-					<input type="reset" class="btn btn-primary " value="목록 " >
+				 <a href="ModifyForm.jsp" class="btn btn-dark" role="button">Update &raquo;</a>
+     		    <a href="DeleteDB.jsp?id=<%=member.getId() %>" class="btn btn-dark" role="button">Delete &raquo;</a>
 				</div>
 			</div>
 		</form>
@@ -80,10 +69,7 @@
 
 
 
-
-
-
-
 <%@ include file = "/footer.jsp" %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 </body>
 </html>

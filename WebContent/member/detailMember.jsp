@@ -64,7 +64,7 @@
 				<%if(id.equals(session.getAttribute("id"))){ %>
 				 <a href="ModifyForm.jsp" class="btn btn-dark" role="button">Update &raquo;</a>
 				 <%} %>
-     		    <button onClick="javascript:delcheck()" class="btn btn-dark" role="button">Delete &raquo;</button>
+     		    <button onClick="javascript:delcheck(); return false;" class="btn btn-dark" role="button">Delete &raquo;</button>
 				</div>
 			</div>
 		</form>

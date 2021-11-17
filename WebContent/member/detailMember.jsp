@@ -15,6 +15,7 @@
 		<h3 class="display-3">회원 정보</h3>
 	</div>
 <%
+	id = request.getParameter("id");
 	MemberObj member = (new MemberDAO()).getDetail(id);
 %>
 
@@ -60,13 +61,23 @@
 			</div>
 			<div class="form-group  row">
 				<div class="col-sm-offset-2 col-sm-10 ">
+				<%if(id.equals(session.getAttribute("id"))){ %>
 				 <a href="ModifyForm.jsp" class="btn btn-dark" role="button">Update &raquo;</a>
-     		    <a href="DeleteDB.jsp?id=<%=member.getId() %>" class="btn btn-dark" role="button">Delete &raquo;</a>
+				 <%} %>
+     		    <button onClick="javascript:delcheck()" class="btn btn-dark" role="button">Delete &raquo;</button>
 				</div>
 			</div>
 		</form>
 	</div>
-
+<script>
+function delcheck() {
+	if(confirm("정말로 탈퇴하시겠습니까?")) {
+		location.href="/member/DeleteDB.jsp?id=<%=member.getId()%>";
+	} else {
+		location.href="/member/detailMember.jsp";
+	}
+}
+</script>
 
 
 <%@ include file = "/footer.jsp" %>

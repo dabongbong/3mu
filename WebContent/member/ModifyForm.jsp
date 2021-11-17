@@ -46,13 +46,13 @@
 				<input name="name" type="text" class="form-control" value="<%=member.getName() %>" readonly>
 				</div>
 			</div>
-			
-			<div class="btn-group" data-toggle="buttons">
-						
+			<div class="form-group row">
+						<p class="col-sm-2">성별</p>
+				<div class="btn-group" data-toggle="buttons">	
 						<%
 						if(member.getGender().equals("남")){
 						%>
-							<label for="men"class="btn btn-primary active">
+							<label for="men"class="btn btn-primary active" style="margin-left:15px">
 								<input id="men"type="radio" name="gender" autoComplete="off" value="남" checked>남
 							</label>
 						<% }else {%>
@@ -75,7 +75,7 @@
 							<input id="women"type="radio" name="gender" autoComplete="off" value="여" checked>여
 						</label>
 					<%}%>
-							
+					</div>
 					</div>
 			<div class="form-group  row">
 				<label class="col-sm-2">생년월일</label>

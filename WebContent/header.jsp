@@ -57,7 +57,7 @@ body {
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> 회원메뉴 <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
           <%if (id != null){%>
-    		<li><a href="/member/detailMember.jsp">마이페이지</a></li>
+    		<li><a href="/member/detailMember.jsp?id=<%=id%>">마이페이지</a></li>
             <li><a href="/member/logout.jsp">로그아웃</a></li>
             <li class="divider"></li>
             <li><a href="/member/DeleteDB.jsp?id=<%=id%>">회원탈퇴</a></li>

@@ -9,6 +9,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="/CSS/style.css">
 <style type="text/css">
        #wrap{
            text-align: center;
@@ -20,19 +21,25 @@
 <body>
 <%@ include file = "/header.jsp" %>
 
-	<h3>User Information</h3><br>
+<div class="jumbotron">
+	<div class="container" style="display:flex;">
+		<h2 class="display-3">회원 리스트</h2>
+		<img src="/img/icon03.png" height="100">
+	</div>
+</div>
 	
 	<%
       ArrayList<MemberObj> members = (new MemberDAO()).getList();
    %>
-	<table class="table table-hover">
+  <div class="body-container container">
+	<table class="table table-striped">
 	  <thead>
 	    <tr>
-	      <th scope="col"></th>
-	      <th scope="col">ID</th>
-	      <th scope="col">NAME</th>
-	      <th scope="col">EMAIL</th>
-	      <th scope="col">PHONE</th>
+	      <th scope="col">번호</th>
+	      <th scope="col">아이디</th>
+	      <th scope="col">이름</th>
+	      <th scope="col">이메일</th>
+	      <th scope="col">휴대폰 번호</th>
 	    </tr>
 	  </thead>
 	  <tbody>
@@ -46,7 +53,7 @@
 		      <td><%=member.getName() %></td>
 		      <td><%=member.getEmail() %></td>
 		      <td><%=member.getPhone() %></td>
-		      <td><a href="detailMember.jsp?id=<%=member.getId() %>" class="btn" style="background-color: #ACC7B4;" role="button">View &raquo;</a></td>
+		      <td><a href="detailMember.jsp?id=<%=member.getId() %>" class="btn btn-dark" role="button">상세보기 &raquo;</a></td>
    		</tr>
    		
          <%
@@ -55,6 +62,7 @@
          %>
 		</tbody>
 	</table>
+</div>
 
 
 

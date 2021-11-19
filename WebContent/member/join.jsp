@@ -7,16 +7,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1, minimum-scale=1">
 <title>회원 가입</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
 </head>
 <body>
 
 <jsp:include page="/header.jsp" />
 <div class="body-container">
-		<div class="jumbotron">
-			<div class="container">
-				<h1 class="display-3">회원 가입</h1>
-			</div>
+	<div class="jumbotron">
+		<div class="container">
+			<h2 class="display-3">회원가입<img src="/img/icon01.png" height="100"></h2>
 		</div>
+	</div>
 
 		<div class="container">
 		

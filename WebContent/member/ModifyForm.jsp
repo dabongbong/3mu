@@ -12,9 +12,12 @@
 </head>
 <body>
 <%@ include file = "/header.jsp" %>
-	<div class="alert alert-secondary" role="alert">
-		<h3 class="display-3">회원 정보 수정</h3>
-	</div>
+<div class="jumbotron">
+  <div class="container" style="display:flex;">
+    <h2 class="display-3">회원정보 수정</h2>
+    <img src="/img/logo01.png" height="100">
+  </div>
+</div>
 <%
 	MemberObj member = (new MemberDAO()).getDetail(id);
 %>
@@ -46,24 +49,24 @@
 				<input name="name" type="text" class="form-control" value="<%=member.getName() %>" readonly>
 				</div>
 			</div>
-			<div class="form-group row">
-						<p class="col-sm-2">성별</p>
-				<div class="btn-group" data-toggle="buttons">	
-						<%
-						if(member.getGender().equals("남")){
-						%>
-							<label for="men"class="btn btn-primary active" style="margin-left:15px">
-								<input id="men"type="radio" name="gender" autoComplete="off" value="남" checked>남
-							</label>
-						<% }else {%>
-							<label for="men" class="btn btn-primary">
-								<input id="men"type="radio" name="gender" autoComplete="off" value="남" checked>남
-							</label>
-						<%}%>
-							
-							
-						
-						
+			
+			<div class="form-group  row">
+				<label class="col-sm-2">성별</label>
+					<div class="col-sm-4">
+			<div class="btn-group" data-toggle="buttons">
+				
+					<%
+					if(member.getGender().equals("남")){
+					%>
+						<label for="men"class="btn btn-primary active">
+							<input id="men"type="radio" name="gender" autoComplete="off" value="남" checked>남
+						</label>
+					<% }else {%>
+						<label for="men" class="btn btn-primary">
+							<input id="men"type="radio" name="gender" autoComplete="off" value="남" checked>남
+						</label>
+					<%}%>
+				
 					<%
 					if(member.getGender().equals("여")){ 
 					%>
@@ -75,8 +78,10 @@
 							<input id="women"type="radio" name="gender" autoComplete="off" value="여" checked>여
 						</label>
 					<%}%>
-					</div>
-					</div>
+				
+				</div>
+			</div><br><br>
+			</div>
 			<div class="form-group  row">
 				<label class="col-sm-2">생년월일</label>
 				<div class="col-sm-3">
@@ -85,8 +90,8 @@
 			</div>
 			<div class="form-group  row ">
 				<label class="col-sm-2">이메일</label>
-				<div class="col-sm-10">
-				<input type="text" name="email" maxlength="50"  class="form-control" placeholder="email" value="<%=member.getEmail() %>" >
+				<div class="col-sm-5">
+				<input type="text" name="email" class="form-control" placeholder="email" value="<%=member.getEmail() %>" >
 					
 				</div>				
 			</div>
@@ -104,7 +109,7 @@
 			</div>
 			<div class="form-group  row">
 				<div class="col-sm-offset-2 col-sm-10 ">
-				<input type="submit" class="btn btn-dark form-control" value="수정완료">
+				<input type="submit" class="btn btn-dark" value="수정완료">
 		        <input type="button" value="탈퇴하기" class="btn btn-dark" onClick="location.href='DeleteDB.jsp?id=<%=member.getId() %>'">
 
 

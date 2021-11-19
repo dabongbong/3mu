@@ -93,5 +93,23 @@ public ArrayList<BoardObj> getList() throws NamingException, SQLException {
 			rs.close(); pstmt.close(); conn.close();
 		}
 	} 
+	public boolean delete(String fno) throws NamingException, SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			String sql ="DELETE FROM board WHERE fno = ?";
+			
+			conn = ConnectionPool.get();
+			pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, fno);
+				
+			int count = pstmt.executeUpdate();
+			return (count == 1)? true:false;
+		}finally {
+			if(pstmt != null) pstmt.close();
+			if(conn != null) conn.close();
+		}
+	}
 	
 }

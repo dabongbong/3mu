@@ -4,6 +4,10 @@
 body {
 	font-family: 'CookieRun-Regular';
 	padding-bottom: 70px;
+	background: url('/img/icon_07(5).png') no-repeat;
+	background-position: center top;
+	/* background-size: cover; */
+	
 }
 
 @font-face {
@@ -12,10 +16,30 @@ body {
     font-weight: normal;
     font-style: normal;
 }
+
+.navbar {
+	margin: 0;
+}
+.navbar-default{
+	background-color : #ACC7B4;
+	margin: 0;
+} 
+.navbar-fixed-bottom{
+	background-color : #331B3F;
+}
+.jumbotron {
+	background-color :#ACC7B4;    /*daeee0*/
+	width:100%;
+}
+.jumbotron h1,h2, .navbar-default .navbar-nav>li>a {
+	color: #331B3F;
+}
 </style>
+
 <%
 	String id = (String) session.getAttribute("id");
 %>
+
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -34,15 +58,15 @@ body {
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="/notice/n-board.jsp">공지사항</a></li>
-        <li><a href="/buy-sell/m-board.jsp">3무마켓</a></li>
-        <li><a href="/board/FreeBoardList.jsp">자유게시판</a></li>
+        <li><a href="/notice/n-board.jsp">공지사항<img src=/img/icon_04.png height=30 style="transform:rotate(15deg);"></a></li>
+        <li><a href="/buy-sell/m-board.jsp">3무마켓<img src=/img/icon_04.png height=30 style="transform:rotate(15deg);"></a></li>
+        <li><a href="/board/FreeBoardList.jsp">자유게시판<img src=/img/icon_04.png height=30 style="transform:rotate(15deg);"></a></li>
         <% 
         if(id != null){
         	if(id.equals("admin")) {
         %>		
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">관리자메뉴 <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">관리자메뉴<img src=/img/icon_04.png height=30 style="transform:rotate(15deg);"> <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="/member/UserInForm.jsp">회원 리스트</a></li>
           </ul>
@@ -54,10 +78,10 @@ body {
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> 회원메뉴 <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> 회원메뉴<img src=/img/icon_04.png height=30 style="transform:rotate(15deg);"> <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
           <%if (id != null){%>
-    		<li><a href="/member/detailMember.jsp?id=<%=id%>">마이페이지</a></li>
+    		<li><a href="/member/detailMember.jsp">마이페이지</a></li>
             <li><a href="/member/logout.jsp">로그아웃</a></li>
             <li class="divider"></li>
             <li><a href="#" onClick="delcheck(); return false">회원탈퇴</a></li>
@@ -71,6 +95,7 @@ body {
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
 <script>
 function delcheck() {
 	if(confirm("정말로 탈퇴하시겠습니까?")) {

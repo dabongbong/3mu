@@ -10,10 +10,24 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="/css/main.css">
 </head>
+<style>
+.jumbotron {
+	padding: 0;
+	margin: 0;
+}
+</style>
 <body>
 <!-- 헤더영역입니다. -->
 <%@ include file = "/header.jsp" %>
+
 <!-- 메인 영역입니다. -->
+<div class="jumbotron">
+	<div class="container" style="display:flex;">
+		<h1 class="display-3">Welcome ssammoo 마켇</h1>
+		<img src="/img/logo05.png" height=250>
+		
+	</div>
+</div>
 <div class="grid_container">
 	<main class="col-md-12">
 		<div>
@@ -71,14 +85,14 @@
 				}}else {
 				%>
 				<tr>
-					<th colspan=5><h2>로그인이 필요합니다!</h2></th>
+					<th colspan=5><h3>로그인이 필요합니다 :)</h2></th>
 				</tr>
 				<%} %>
 			</table>
 		</div>
 	</main>
 	<aside class="">
-		<h3>게시판 타임라인!</h3>
+		<h3>게시판 타임라인</h3>
 		<div class="mini-board aside-container">
 			<table class="table table-condensed">
 				<tr>

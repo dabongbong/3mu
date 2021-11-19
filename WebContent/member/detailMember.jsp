@@ -5,17 +5,21 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1, minimum-scale=1">
 <title>회원 정보</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1, minimum-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="/CSS/style.css">
 </head>
 <body>
 <%@ include file = "/header.jsp" %>
-	<div class="alert alert-secondary" role="alert">
-		<h3 class="display-3">회원 정보</h3>
+	<div class="jumbotron">
+		<div class="container" style="display:flex;">
+			<h2 class="display-3">회원정보</h2>
+			<img src="/img/logo02.png" height="100" >
+			
+		</div>
 	</div>
 <%
-	id = request.getParameter("id");
 	MemberObj member = (new MemberDAO()).getDetail(id);
 %>
 
@@ -33,6 +37,7 @@
 					<%=member.getName() %>
 				</div>
 			</div>
+
 			<div class="form-group  row ">
 				<label class="col-sm-2">이메일</label>
 				<div class="col-sm-10">
@@ -62,9 +67,10 @@
 			<div class="form-group  row">
 				<div class="col-sm-offset-2 col-sm-10 ">
 				<%if(id.equals(session.getAttribute("id"))){ %>
-				 <a href="ModifyForm.jsp" class="btn btn-dark" role="button">Update &raquo;</a>
+				 
+				 <a href="ModifyForm.jsp" class="btn btn-default" role="button">수정하기 </a>
 				 <%} %>
-     		    <button onClick="javascript:delcheck(); return false;" class="btn btn-dark" role="button">Delete &raquo;</button>
+     		    <button onClick="javascript:delcheck(); return false;" class="btn btn-default" role="button">탈퇴하기</button>
 				</div>
 			</div>
 		</form>
